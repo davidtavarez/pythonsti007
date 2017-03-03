@@ -38,23 +38,6 @@ class ObtainAuthToken(APIView):
         return Response({'token': token.key})
 
 
-class VehicleViewSet(viewsets.ModelViewSet):
-    serializer_class = VehicleSerializer
-    queryset = Vehicle.objects.all()
-    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
-class CraterViewSet(viewsets.ModelViewSet):
-    serializer_class = CraterSerializer
-    queryset = Crater.objects.all()
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
-
-class FallViewSet(viewsets.ModelViewSet):
-    serializer_class = FallSerializer
-    queryset = Fall.objects.all()
-
-
 class CraterDetails(APIView):
     def get_object(self, pk):
         try:
@@ -81,6 +64,7 @@ class EmployeeDetails(APIView):
     """
     Retrieve, update or delete a snippet instance.
     """
+
     def get_object(self, pk):
         try:
             return Employee.objects.get(pk=pk)
@@ -108,5 +92,24 @@ class EmployeeDetails(APIView):
 
 class ReceiveReport(APIView):
     authentication_classes = (authentication.TokenAuthentication,)
+
     def post(self, request, format=None):
         pass
+
+
+class VehicleViewSet(viewsets.ModelViewSet):
+    serializer_class = VehicleSerializer
+    queryset = Vehicle.objects.all()
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+
+class CraterViewSet(viewsets.ModelViewSet):
+    serializer_class = CraterSerializer
+    queryset = Crater.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+
+class FallViewSet(viewsets.ModelViewSet):
+    serializer_class = FallSerializer
+    queryset = Fall.objects.all()
