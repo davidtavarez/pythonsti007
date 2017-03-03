@@ -19,7 +19,7 @@ urlpatterns = [
                   url(r'^api/v1/employees/(?P<pk>[0-9]+)/$',
                       views.EmployeeDetails.as_view(),
                       name='employee-detail'),
-                  url(r'^api/v1/crater/(?P<pk>[0-9]+)/$',
+                  url(r'^api/v1/craters/(?P<pk>[0-9]+)/$',
                       views.CraterDetails.as_view(),
                       name='crater-detail'),
                   url(r'^api/open/craters/', views.ListCraters.as_view(), name="list_craters"),
