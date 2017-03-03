@@ -129,7 +129,7 @@ MEDIA_URL = '/media/'
 REST_FRAMEWORK = {
     'COMPACT_JSON': True,
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 25,
+    'PAGE_SIZE': 5,
     'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata',
     'UNICODE_JSON': True,
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -139,9 +139,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissions',
     ),
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
+    #'DEFAULT_RENDERER_CLASSES': (
+    #    'rest_framework.renderers.JSONRenderer',
+    #),
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),

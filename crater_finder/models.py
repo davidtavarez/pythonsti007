@@ -47,14 +47,13 @@ class Crater(models.Model):
     longitude = models.DecimalField(max_digits=9, decimal_places=6, default=-70.162651,
                                     verbose_name="Longitude")
     nickname = models.CharField(max_length=30, default="", verbose_name="nickname")
-    reported_by = models.ForeignKey(Employee)
     discovered_at = models.DateTimeField(editable=False, default=timezone.now)
 
     def __unicode__(self):
         return self.nickname
 
     class Meta:
-        ordering = ('nickname',)
+        ordering = ('id',)
 
 
 class Fall(models.Model):

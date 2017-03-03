@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 
 from crater_finder.models import Crater, Employee, Vehicle, Fall
 
@@ -12,10 +13,10 @@ class CraterAdmin(admin.ModelAdmin):
     )
 
     def location(self, instance):
-        return '<a href="https://www.google.com/maps/?q=%s,%s" target="_blank"><img src=http://maps.google.com/maps/api/staticmap?center=%s,%s&zoom=14&size=160x100&maptype=roadmap&sensor=false&language=&markers=color:red|label:none|%s,%s width="160" height="100"/></a>' % (
+        return mark_safe('<a href="https://www.google.com/maps/?q=%s,%s" target="_blank"><img src=http://maps.google.com/maps/api/staticmap?center=%s,%s&zoom=14&size=160x100&maptype=roadmap&sensor=false&language=&markers=color:red|label:none|%s,%s width="160" height="100"/></a>' % (
             str(instance.latitude), str(instance.longitude), str(instance.latitude),
             str(instance.longitude),
-            str(instance.latitude), str(instance.longitude))
+            str(instance.latitude), str(instance.longitude)))
 
 
 @admin.register(Employee)
