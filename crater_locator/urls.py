@@ -4,8 +4,6 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 
-from django.utils.translation import ugettext_lazy as _
-
 from crater_finder import views
 from crater_locator import settings
 
